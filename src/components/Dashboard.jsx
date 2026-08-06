@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { jobAPI, applicationAPI } from '../api/client';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/Auth';
 import './Dashboard.css';
 
 const STATUS_META = {
