@@ -58,6 +58,13 @@
   font-style: italic;
 }
 
+.dash-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 .dash-cta {
   flex-shrink: 0;
   background: var(--ink);
@@ -68,11 +75,33 @@
   font-size: 14px;
   font-weight: 600;
   transition: transform 0.15s ease, background 0.15s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .dash-cta:hover {
   background: var(--accent);
   transform: translateY(-1px);
+}
+
+.dash-signout {
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.dash-signout:hover {
+  border-color: var(--stage-rejected);
+  color: var(--stage-rejected);
 }
 
 .dash-status {
