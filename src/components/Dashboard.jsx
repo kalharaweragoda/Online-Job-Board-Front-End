@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { jobAPI, applicationAPI } from '../services/client';
 import { useAuth } from '../context/Auth';
 import '../styles/Dashboard.css';
@@ -12,13 +12,19 @@ const STATUS_META = {
 };
 
 export default function Dashboard() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [pipeline, setPipeline] = useState({ applied: 0, reviewed: 0, accepted: 0, rejected: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    if (!user) {
+      setLoading(false);
+      return;
+    }
+
     let cancelled = false;
 
     async function load() {
@@ -58,7 +64,12 @@ export default function Dashboard() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [user]);
+
+  const handleSignOut = () => {
+    logout();
+    navigate('/login');
+  };
 
   const totalApplicants = Object.values(pipeline).reduce((a, b) => a + b, 0);
   const openRoles = jobs.filter((j) => j.status === 'open').length;
@@ -72,18 +83,46 @@ export default function Dashboard() {
         <div>
           <p className="dash-eyebrow">Employer dashboard</p>
           <h1 className="dash-title">
-            {greeting}, <span className="dash-title-accent">{user?.username || 'there'}</span>
+            {greeting}
+            {user ? (
+              <>
+                , <span className="dash-title-accent">{user.username}</span>
+              </>
+            ) : null}
           </h1>
         </div>
-        <Link to="/jobs/new" className="dash-cta">
-          + Post a job
-        </Link>
+
+        <div className="dash-top-actions">
+          {user ? (
+            <>
+              <Link to="/jobs/new" className="dash-cta">
+                + Post a job
+              </Link>
+              <button type="button" className="dash-signout" onClick={handleSignOut}>
+                Sign out
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="dash-cta">
+              Sign in
+            </Link>
+          )}
+        </div>
       </header>
 
-      {loading && <p className="dash-status">Loading your hiring activity…</p>}
-      {error && <p className="dash-status dash-status-error">{error}</p>}
+      {!user && (
+        <p className="dash-empty-card">
+          <Link to="/login" className="dash-empty-link">
+            Sign in
+          </Link>{' '}
+          to see your job postings and applicants.
+        </p>
+      )}
 
-      {!loading && !error && (
+      {user && loading && <p className="dash-status">Loading your hiring activity…</p>}
+      {user && error && <p className="dash-status dash-status-error">{error}</p>}
+
+      {user && !loading && !error && (
         <>
           <section className="dash-stats">
             <div className="stat-card">
