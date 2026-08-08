@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { jobAPI, applicationAPI } from '../services/client';
 import { useAuth } from '../context/Auth';
-import './Dashboard.css';
+import '../styles/Dashboard.css';
 
 const STATUS_META = {
   applied: { label: 'Applied', color: 'var(--stage-applied)' },
