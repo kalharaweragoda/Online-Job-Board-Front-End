@@ -121,3 +121,29 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+.role-toggle {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.role-option {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.role-option-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
