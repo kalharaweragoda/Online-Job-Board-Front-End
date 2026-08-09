@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+.jobform {
+  --ink: #1B2430;
+  --paper: #F6F5F1;
+  --surface: #FFFFFF;
+  --accent: #2F6F4E;
+  --accent-soft: #E4EFE8;
+  --line: #E1DFD8;
+  --muted: #6B7280;
+  --error: #B4534A;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--paper);
+  font-family: 'Inter', sans-serif;
+  padding: 48px 24px 96px;
+}
+
+.jobform-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobform-back {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.jobform-back:hover {
+  color: var(--accent);
+}
+
+.jobform-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.jobform-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0 0 24px;
+  color: var(--ink);
+}
+
+.jobform-title-accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.jobform-error {
+  background: #FBEAE8;
+  color: var(--error);
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 0 0 16px;
+}
+
+.jobform-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.jobform-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.jobform-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.jobform-input:focus {
+  border-color: var(--accent);
+}
+
+.jobform-textarea {
+  resize: vertical;
+  font-family: 'Inter', sans-serif;
+}
+
+.jobform-submit {
+  margin-top: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.jobform-submit:hover {
+  background: var(--accent);
+}
+
+.jobform-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .jobform-row {
+    grid-template-columns: 1fr;
+  }
+}
