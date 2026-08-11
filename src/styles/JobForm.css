@@ -54,8 +54,17 @@
   font-family: 'Fraunces', serif;
   font-weight: 500;
   font-size: 30px;
-  margin: 0 0 24px;
+  margin: 0 0 12px;
   color: var(--ink);
+}
+
+.jobform-applicants-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .jobform-title-accent {
@@ -70,6 +79,22 @@
   padding: 10px 12px;
   border-radius: 8px;
   margin: 0 0 16px;
+}
+
+.jobform-success {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 0 0 16px;
+}
+
+.jobform-status {
+  text-align: center;
+  color: var(--muted);
+  padding: 48px;
 }
 
 .jobform-row {
