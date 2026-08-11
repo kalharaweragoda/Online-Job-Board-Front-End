@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
+.joblist {
+  --ink: #1B2430;
+  --paper: #F6F5F1;
+  --surface: #FFFFFF;
+  --accent: #2F6F4E;
+  --accent-soft: #E4EFE8;
+  --line: #E1DFD8;
+  --muted: #6B7280;
+  --error: #B4534A;
+
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+.joblist-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.joblist-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0 0 32px;
+}
+
+.joblist-title-accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.joblist-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.joblist-search,
+.joblist-select {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+}
+
+.joblist-search:focus,
+.joblist-select:focus {
+  border-color: var(--accent);
+}
+
+.joblist-status {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.joblist-status-error {
+  color: var(--error);
+}
+
+.joblist-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.jobcard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.jobcard:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.jobcard-link {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--ink);
+  gap: 6px;
+}
+
+.jobcard-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.jobcard-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.jobcard-salary {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0;
+}
+
+.jobcard-arrow {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.jobcard-link:hover .jobcard-arrow {
+  color: var(--accent);
+}
+
+.joblist-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.joblist-page-btn {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.joblist-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.joblist-page-info {
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media (max-width: 700px) {
+  .joblist-filters,
+  .joblist-grid {
+    grid-template-columns: 1fr;
+  }
+}
