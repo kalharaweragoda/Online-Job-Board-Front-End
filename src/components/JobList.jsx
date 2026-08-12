@@ -19,7 +19,14 @@ export default function JobList() {
   useEffect(() => {
     categoryAPI
       .list()
-      .then((res) => setCategories(res.data))
+      .then((res) => {
+        // Handles both paginated ({results, count}) and plain array responses
+        if (Array.isArray(res.data)) {
+          setCategories(res.data);
+        } else {
+          setCategories(res.data.results || []);
+        }
+      })
       .catch(() => setCategories([]));
   }, []);
 
